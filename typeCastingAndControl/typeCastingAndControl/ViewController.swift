@@ -22,6 +22,22 @@ class ViewController: UIViewController {
         
         
         
+        //MARK:
+        //  Пройдите по всем элементам коллекции.  Для каждого целого, напечайте "Целое число " и его значение.  Повторите то же самое для вещественных чисел, строк и булевых значений.
+        
+       for element in arrayOfAnyType {
+            if element is Double {
+                print("Вещественное число \(element)")
+            } else if element is Int {
+                print("Целое число \(element)")
+            } else if element is String {
+                print("Имя \(element)")
+            } else if element is Bool {
+                print("Это \(element)")
+            }
+        }
+
+       
     }
     
 }

@@ -51,7 +51,41 @@ class ViewController: UIViewController {
         }
         
         
+        //MARK:
+        // Создайте переменную total типа Double, равную 0.  Переберите все значения словаря, и добавьте значение каждого целого и вещественного числа к значению вашей переменной.  Для каждой строки добавьте 1.  Для каждого булева значения, добавьте 2, в случае, если значение равно true, либо вычтите 3, если оно false.  Напечатайте значение total.
         
+        
+        func getSum() {
+        
+        var total: Double = 0
+        
+        for value in dictionaryOfAnyType.values {
+            
+            if value is Double {
+                if let value = value as? Double {
+                    total += value
+                }
+            } else if value is Int {
+                if let value = value as? Int {
+                    total += Double(value)
+                }
+            } else if value is String {
+                    total += 1
+            
+            } else if value is Bool {
+                if let value = value as? Bool {
+                    if value {
+                    total += 2
+                    } else {
+                    total -= 3
+                    }
+                }
+            }
+            }
+            print(total)
+        }
+        
+        getSum()
     }
     
 }

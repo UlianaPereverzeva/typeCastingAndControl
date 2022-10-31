@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         
         
         
-        var dictionaryOfAnyType: [String : Any] = ["Вещественное число 0" : 2.2, "Вещественное число 1" : 9.66, "Целое число 3" : 8, "Целое число 4" : 76, "мое Имя" : "Uly", "Имя подруги" : "Anna", "Это" : true, "А это" : false]
+        var dictionaryOfAnyType: [String : Any] = ["Вещественное число 0" : 2.2, "Вещественное число 1" : 9.66, "Целое число 3" : 8, "Целое число 4" : 76, "мое Имя" : "7", "Имя подруги" : "Anna", "Это" : true, "А это" : false]
         
         for (key, value) in dictionaryOfAnyType {
             print("\(key) : \(value)")
@@ -86,7 +86,38 @@ class ViewController: UIViewController {
         }
         
         getSum()
+        
+        //MARK:
+        //  Обнулите переменную total и снова пройдите по всей коллекции, прибавляя к ней все целые и вещественные числа.  Для каждой строки, встретившейся на пути, попробуйте сконвертировать её в число, и добавьте это значение к общему.  Игнорируйте булевы значения.  Распечатайте итог.
+        
+        func recalculatingTheSumOfACollection() {
+            
+            var total: Double = 0
+            
+            for element in dictionaryOfAnyType.values {
+                
+                if element is Double {
+                    if let element = element as? Double {
+                        total += element
+                    }
+                } else if element is Int {
+                    if let element = element as? Int {
+                        total += Double(element)
+                    }
+                } else if element is String {
+                    if let element = element as? String {
+                        if let stringWithNumbers = Double(element) {
+                            total += stringWithNumbers
+                        }
+                    }
+                }
+                
+            }
+            print(total)
+        }
+        recalculatingTheSumOfACollection()
     }
+        
     
 }
 
